@@ -1,8 +1,11 @@
 import React from 'react'
+import Button from './components/Button'
 
 function App() {
   return (
-    <div className='text-black text-[4rem]'>App</div>
+    <div>
+      <Button />
+    </div>
   )
 }
 
