@@ -1,1 +1,37 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'Switzer-Medium';
+  src: url('./assets/fonts/Switzer-Medium.otf') format('woff2'),
+       url('./assets/fonts/Switzer-Medium.otf')  format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Switzer-Semibold';
+  src: url('./assets/fonts/Switzer-Semibold.otf') format('woff2'),
+       url('./assets/fonts/Switzer-Semibold.otf')  format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Switzer-Regular';
+  src: url('./assets/fonts/Switzer-Regular.otf') format('woff2'),
+       url('./assets/fonts/Switzer-Regular.otf')  format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bonny-Bold';
+  src: url('./assets/fonts/Bonny-Bold.otf') format('woff2'),
+       url('./assets/fonts/Bonny-Bold.otf')  format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
