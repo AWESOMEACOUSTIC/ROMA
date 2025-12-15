@@ -1,10 +1,11 @@
 import React from 'react'
 import Button from './components/Button'
+import Navigation from './components/Navigation'
 
 function App() {
   return (
     <div>
-      <Button />
+      <Navigation />
     </div>
   )
 }
