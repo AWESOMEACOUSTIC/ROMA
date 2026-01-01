@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 
 /**
@@ -17,21 +17,26 @@ export default function ImageZoomCard({
   className = '',
   imageStyle = {},
 }) {
+  const [isHovered, setIsHovered] = useState(false)
+
   return (
-    <a
+    <motion.a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       className={`inline-block ${className}`}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      style={{ zIndex: isHovered ? 20 : 1 }}
     >
       <div className="overflow-hidden rounded-lg">
         <motion.img
           src={src}
           alt={alt}
           className="w-full h-auto object-cover"
-          // scale up slightly on hover
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3, ease: 'easeOut' }}
+          // delayed, slower hover zoom so move feels more intentional
+          whileHover={{ scale: 1.08 }}
+          transition={{ delay: 0.18, duration: 0.86, ease: [0.19, 1, 0.22, 1] }}
           style={{ transformOrigin: 'center center', ...imageStyle }}
         />
       </div>
@@ -40,6 +45,6 @@ export default function ImageZoomCard({
           {caption}
         </p>
       )}
-    </a>
+    </motion.a>
   )
 }
