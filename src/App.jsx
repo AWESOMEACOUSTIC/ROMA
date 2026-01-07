@@ -5,10 +5,12 @@ import HeroImage from './sections/HeroImage'
 import DefineUs from './sections/DefineUs'
 import Stories from './sections/Stories'
 import Footer from './sections/Footer'
+import Carousel from './sections/Carousel'
 
 function App() {
   return (
     <div>
+      <Carousel />
       <DefineUs />
       <Stories />
       {/* <HeroImage /> */}
