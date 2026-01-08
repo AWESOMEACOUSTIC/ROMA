@@ -6,10 +6,12 @@ import DefineUs from './sections/DefineUs'
 import Stories from './sections/Stories'
 import Footer from './sections/Footer'
 import Carousel from './sections/Carousel'
+import Intro from './sections/Intro'
 
 function App() {
   return (
     <div>
+      <Intro />
       <Carousel />
       <DefineUs />
       <Stories />
