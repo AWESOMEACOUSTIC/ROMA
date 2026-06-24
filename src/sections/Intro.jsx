@@ -1,6 +1,6 @@
 const Intro = () => {
 	return (
-		<section className="w-full bg-[#f4ede5] py-24 px-6 md:px-12">
+		<section className="w-full bg-[#f4ede5] py-24 px-6 md:px-12 md:py-14">
 			<div className="mx-auto max-w-2xl text-center">
 				<p className="font-['Switzer-Semibold'] uppercase tracking-[0.35em] text-[0.75rem] text-[#a55d43]">
 					Warmth, always

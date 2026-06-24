@@ -9,9 +9,9 @@ function Home() {
   return (
     <div>
       <DefineUs />
+      <Stories />
       <Intro />
       <Carousel />
-      <Stories />
       {/* <HeroImage /> */}
       {/* <Navigation /> */}
       <Footer />
