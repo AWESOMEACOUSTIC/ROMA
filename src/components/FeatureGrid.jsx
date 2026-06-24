@@ -1,49 +1,54 @@
 const FeatureGrid = ({ items }) => {
 	return (
-		<div className="border border-[#1f3b2a] bg-[rgba(237,234,226,0.45)]">
+		<div className="w-full border border-[#1f3b2a] bg-[rgba(237,234,226,0.45)]">
 			<div className="grid grid-cols-1 md:grid-cols-3">
 				{items.map((item, index) => {
 					const isLastColumn = (index + 1) % 3 === 0;
 					const totalRows = Math.ceil(items.length / 3);
 					const currentRow = Math.floor(index / 3);
 					const isLastRow = currentRow === totalRows - 1;
+
 					const cellClasses = [
-						"flex flex-col items-center justify-start gap-6 px-10 py-16 text-center",
+						"flex flex-col items-center px-10 py-16 text-center",
 						"border-b border-[#1f3b2a]/50"
 					];
 
 					if (!isLastColumn) {
 						cellClasses.push("md:border-r md:border-[#1f3b2a]/50");
 					}
-
 					if (isLastRow) {
 						cellClasses.push("md:border-b-0");
 					}
 
 					return (
 						<div key={item.id} className={cellClasses.join(" ")}>
-							<span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1f3b2a]/60 text-xs uppercase tracking-[0.35em] text-[#1f3b2a]">
+							{/* Badge — always at the top */}
+							<span className="flex h-9 w-9 items-center font-[Switzer-Regular] justify-center rounded-full border border-[#1f3b2a]/60 text-xs tabular-nums tracking-normal text-[#1f3b2a]">
 								{item.id}
 							</span>
 
-							{item.imageUrl ? (
-								<img
-									src={item.imageUrl}
-									alt={item.alt ?? "Feature visual"}
-									className="h-[140px] w-[140px] object-cover"
-									loading="lazy"
-								/>
-							) : null}
+							{/* Image slot — fixed height keeps every row aligned */}
+							<div className="mt-6 flex h-[150px] w-[300px] items-center justify-center">
+								{item.imageUrl ? (
+									<img
+										src={item.imageUrl}
+										alt={item.alt ?? "Feature visual"}
+										className="h-[150px] w-[300px] object-cover"
+										loading="lazy"
+									/>
+								) : null}
+							</div>
 
-							<div className="flex flex-col items-center gap-6">
+							{/* Content area — aligned across all cells */}
+							<div className="mt-6 flex flex-1 flex-col items-center justify-center gap-6 font-[Switzer-Medium]">
 								{item.description ? (
-									<p className="max-w-[220px] text-sm leading-relaxed text-[#1f3b2a]">
+									<p className="max-w-[260px] text-sm leading-normal text-[#1f3b2a]">
 										{item.description}
 									</p>
 								) : null}
 
 								{item.cta ? (
-									<div className="flex flex-col items-center gap-5">
+									<>
 										{item.ctaText ? (
 											<p className="max-w-sm text-sm leading-relaxed text-[#1f3b2a]">
 												{item.ctaText}
@@ -70,7 +75,7 @@ const FeatureGrid = ({ items }) => {
 												</svg>
 											</button>
 										</div>
-									</div>
+									</>
 								) : null}
 							</div>
 						</div>

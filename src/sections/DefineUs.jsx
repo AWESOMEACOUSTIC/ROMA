@@ -20,7 +20,7 @@ const FEATURES = [
 	{
 		id: "03",
 		imageUrl:
-			"https://images.unsplash.com/photo-1514516345957-556ca7d90a2a?auto=format&fit=crop&w=400&q=80",
+			"https://i.pinimg.com/736x/fe/4f/c0/fe4fc0b2806843f45c330b6dec1b3cff.jpg",
 		alt: "Dessert on green plate",
 		description:
 			"Our food tells a story of place. You'll find inspiration from both our region and our roots, blending traditional Italian craft with a modern touch."
@@ -51,10 +51,10 @@ const FEATURES = [
 
 const DefineUs = () => {
 	return (
-		<section className="bg-[#f3efe9] px-6 py-20 md:px-12 lg:px-20">
-			<div className="mx-auto flex max-w-6xl flex-col items-center gap-16">
-				<header className="text-center">
-					<h2 className="text-4xl font-light uppercase tracking-[0.3em] text-[#1f3b2a] md:text-5xl">
+		<section className="bg-[#f3efe9] px-0 py-20 md:px-0 lg:px-0">
+			<div className="w-full mx-auto flex max-w-full flex-col items-center gap-16">
+				<header className="text-center font-[Bonny-Bold]">
+					<h2 className="text-4xl font-extralight uppercase tracking-normal text-[#1f3b2a] md:text-5xl">
 						What Defines Us
 					</h2>
 				</header>
