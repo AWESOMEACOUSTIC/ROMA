@@ -65,10 +65,10 @@ export default function Carousel() {
     <section className="border border-green-800 bg-[#f3efe9]">
       {/* HEADER */}
       <div className="flex justify-between items-center px-10 py-8 border-b border-green-800">
-        <h2 className="font-serif text-4xl tracking-wide text-green-800">
+        <h2 className="text-4xl text-green-800 font-[Bonny-Bold]">
           JOURNAL
         </h2>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 font-[Switzer-Medium]">
           <button className="bg-green-800 text-white px-5 py-2.5 rounded-md hover:bg-green-900 transition-colors text-sm">
             Read all
           </button>
@@ -88,7 +88,7 @@ export default function Carousel() {
           {posts.map((post) => (
             <div
               key={post.id}
-              className="shrink-0 basis-1/3 border-r border-green-800"
+              className="shrink-0 basis-1/3 border-r border-green-800 font-[Switzer-Regular]"
             >
               <CarouselCard title={post.title} image={post.image} href={post.href} />
             </div>

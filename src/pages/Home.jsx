@@ -4,6 +4,7 @@ import Stories from '../sections/Stories'
 import Footer from '../sections/Footer'
 import Carousel from '../sections/Carousel'
 import Intro from '../sections/Intro'
+import BannerImage from '../sections/BannerImage'
 
 function Home() {
   return (
@@ -12,6 +13,7 @@ function Home() {
       <Stories />
       <Intro />
       <Carousel />
+      <BannerImage />
       {/* <HeroImage /> */}
       {/* <Navigation /> */}
       <Footer />

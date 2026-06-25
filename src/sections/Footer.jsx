@@ -1,10 +1,8 @@
 import FooterContents from "../components/FooterContents.jsx";
 
 const Footer = () => (
-	<footer className="bg-[#f3efe9] px-6 py-24 md:px-12 lg:px-20">
-		<div className="mx-auto max-w-6xl">
-			<FooterContents />
-		</div>
+	<footer className="bg-[#f3efe9] text-[#1f3b2a] overflow-hidden">
+		<FooterContents />
 	</footer>
 );
 
