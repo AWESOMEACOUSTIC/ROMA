@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router";
 
 const containerVariants = {
 	hidden: { opacity: 0 },
@@ -34,6 +35,13 @@ const FooterText = ({ children }) => (
 		{children}
 	</p>
 );
+
+const FooterLink = ({ to, children }) => (
+	<Link to={to} className="font-[Switzer-Medium] text-[12px] uppercase text-[#1f3b2a] leading-relaxed hover:text-[#8a1c25] transition-colors duration-300">
+		{children}
+	</Link>
+);
+
 
 const FooterContents = () => (
 	<motion.div
@@ -85,9 +93,9 @@ const FooterContents = () => (
 		>
 			{/* Left nav */}
 			<div className="flex flex-col gap-2">
-				<FooterText>HOME</FooterText>
-				<FooterText>ABOUT</FooterText>
-				<FooterText>RESTAURANT</FooterText>
+				<FooterLink to="/">HOME</FooterLink>
+				<FooterLink to="/about">ABOUT</FooterLink>
+				<FooterLink to="/restaurant">RESTAURANT</FooterLink>
 			</div>
 
 			{/* Hat — aligned below Tel */}
@@ -97,8 +105,8 @@ const FooterContents = () => (
 
 			{/* Right nav */}
 			<div className="flex flex-col gap-2">
-				<FooterText>VILLAS</FooterText>
-				<FooterText>JOURNAL</FooterText>
+				<FooterLink to="/villas">VILLAS</FooterLink>
+				<FooterLink to="/journal">JOURNAL</FooterLink>
 				<FooterText>CONTACT</FooterText>
 			</div>
 

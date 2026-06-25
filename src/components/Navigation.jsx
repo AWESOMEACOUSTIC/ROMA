@@ -1,17 +1,23 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { FaInstagram, FaFacebook, FaPinterest } from 'react-icons/fa'
+import { Link } from 'react-router'
 
-const LINKS = ['Hotel', 'Restaurant', 'Roma']
+const TOP_LINKS = [
+    { label: 'Hotel', path: '/villas' },
+    { label: 'Restaurant', path: '/restaurant' },
+    { label: 'Roma', path: '/' }
+]
 
 const MENU_ITEMS = [
-    { num: '01', label: 'About' },
-    { num: '02', label: 'Restaurant' },
-    { num: '03', label: 'Villas' },
-    { num: '04', label: 'Journal' },
+    { num: '01', label: 'About', path: '/about' },
+    { num: '02', label: 'Restaurant', path: '/restaurant' },
+    { num: '03', label: 'Villas', path: '/villas' },
+    { num: '04', label: 'Journal', path: '/journal' },
 ]
 
 const FOOTER_LINKS = ['Contact', 'Terms of Use', 'Privacy Policy']
+
 
 
 export default function Navigation() {
@@ -20,21 +26,24 @@ export default function Navigation() {
     return (
         <>
             {/* Chef-hat logo — top left */}
-            <motion.a
-                href="#"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                whileHover={{ scale: 1.08, rotate: -3 }}
+            <Link
+                to="/"
                 aria-label="Home"
                 className="absolute top-4 left-6 z-50"
             >
-                <img
-                    src="https://framerusercontent.com/images/BvDKz2LWasVftH4S0KIYY89Eok.png"
-                    alt="logo"
-                    className="w-16 h-16 object-contain"
-                />
-            </motion.a>
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
+                    whileHover={{ scale: 1.08, rotate: -3 }}
+                >
+                    <img
+                        src="https://framerusercontent.com/images/BvDKz2LWasVftH4S0KIYY89Eok.png"
+                        alt="logo"
+                        className="w-16 h-16 object-contain"
+                    />
+                </motion.div>
+            </Link>
 
             {/* Top-right menu */}
             <motion.nav
@@ -70,25 +79,28 @@ export default function Navigation() {
                     <div className="relative flex flex-col h-full">
                         <div className="flex-1" />
                         <div className="flex border-t border-white/20">
-                            {LINKS.map((txt, i) => (
-                                <motion.a
-                                    key={txt}
-                                    href="#"
+                            {TOP_LINKS.map((item, i) => (
+                                <Link
+                                    key={item.label}
+                                    to={item.path}
                                     className={
                                         'flex-1 text-center text-white py-4 text-sm font-medium ' +
-                                        (i < LINKS.length - 1
+                                        (i < TOP_LINKS.length - 1
                                             ? 'border-r border-white/20'
                                             : '')
                                     }
-                                    whileHover={{ scale: 1.05 }}
-                                    transition={{
-                                        type: 'spring',
-                                        stiffness: 300,
-                                        damping: 20,
-                                    }}
                                 >
-                                    {txt}
-                                </motion.a>
+                                    <motion.div
+                                        whileHover={{ scale: 1.05 }}
+                                        transition={{
+                                            type: 'spring',
+                                            stiffness: 300,
+                                            damping: 20,
+                                        }}
+                                    >
+                                        {item.label}
+                                    </motion.div>
+                                </Link>
                             ))}
                         </div>
                     </div>
@@ -199,8 +211,9 @@ export default function Navigation() {
                                             duration: 0.3,
                                         }}
                                     >
-                                        <a
-                                            href="#"
+                                        <Link
+                                            to={item.path}
+                                            onClick={() => setMenuOpen(false)}
                                             className="group flex items-baseline gap-3 py-1 text-white transition-all duration-300 hover:pl-6"
                                         >
                                             <span className="text-xs text-white/50">
@@ -209,7 +222,7 @@ export default function Navigation() {
                                             <span className="text-4xl font-[Bonny-Bold]">
                                                 {item.label}
                                             </span>
-                                        </a>
+                                        </Link>
                                     </motion.li>
                                 ))}
                             </ul>
