@@ -7,48 +7,48 @@ function Stories() {
   const cards = [
     {
       src: "https://framerusercontent.com/images/Ao6XlEVJkfWlugnYkzzoHWB4QUE.jpeg",
-      alt: "Brioche bun on a plate",
-      top: 70,
-      left: 21.5,
-      width: 340,
-      height: 235,
+      alt: "Brioche Bun",
+      top: 248,
+      left: 10.5,
+      width: 486,
+      height: 359,
     },
     {
       src: "https://framerusercontent.com/images/RsFlWUURYmOGf0LDMMb2Xnass.jpg",
       alt: "Cocktail in a glass",
-      top: 0,
-      left: 97,
-      width: 390,
-      height: 285,
+      top: 10,
+      left: 87,
+      width: 426,
+      height: 479,
     },
     {
       src: "https://framerusercontent.com/images/DVR9GwhSBDd4i12phYJP7sR4nk.jpg",
       alt: "Hands prepping vegetables",
-      top: 290,
-      left: 46.5,
-      width: 135,
-      height: 134,
+      top: 706,
+      left: 66.5,
+      width: 389,
+      height: 288,
     },
     {
       src: "https://framerusercontent.com/images/7gGEROASRKx7ydb5orCL3sj1G0.png",
       alt: "Halved tomato",
-      top: 485,
-      left: 17.5,
-      width: 191,
-      height: 190,
+      top: 1099,
+      left: 2.5,
+      width: 467,
+      height: 486,
     },
     {
       src: "https://framerusercontent.com/images/na5jfd4ADOii27QRbWJ4Tp6xSdo.jpg",
       alt: "Bunch of grapes",
-      top: 555,
-      left: 75,
-      width: 191,
-      height: 184,
+      top: 1277,
+      left: 85,
+      width: 467,
+      height: 458,
     },
   ];
 
   return (
-    <div className="min-h-screen bg-[#f3efe9] px-8 py-12">
+    <div className="min-h-screen bg-[#f3efe9] px-8 py-12 overflow-x-hidden">
       <p className="text-center text-xs tracking-wide text-green-800">
         @ROMA_RESTAURANT
       </p>
@@ -57,7 +57,7 @@ function Stories() {
       </h1>
 
       {/* Fixed-aspect canvas so absolute placement matches the design */}
-      <div className="relative mx-auto h-[800px] w-full max-w-3xl">
+      <div className="relative mx-auto h-[1750px] w-full max-w-5xl">
         {cards.map((card, idx) => (
           <div
             key={idx}
@@ -74,6 +74,7 @@ function Stories() {
               alt={card.alt}
               caption={card.alt}
               href="https://www.instagram.com/roma_restaurant/"
+              className="w-full font-[Switzer-Medium]"
               imageStyle={{ height: `${card.height}px`, width: "100%" }}
             />
           </div>

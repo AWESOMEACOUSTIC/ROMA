@@ -24,7 +24,7 @@ export default function ImageZoomCard({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-block ${className}`}
+      className={`inline-block w-full ${className}`}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       style={{ zIndex: isHovered ? 20 : 1 }}
