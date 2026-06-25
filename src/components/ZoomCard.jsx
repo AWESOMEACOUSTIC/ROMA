@@ -16,6 +16,7 @@ export default function ImageZoomCard({
   href = '#',
   className = '',
   imageStyle = {},
+  innerClassName = 'rounded-lg',
 }) {
   const [isHovered, setIsHovered] = useState(false)
 
@@ -29,7 +30,7 @@ export default function ImageZoomCard({
       onHoverEnd={() => setIsHovered(false)}
       style={{ zIndex: isHovered ? 20 : 1 }}
     >
-      <div className="overflow-hidden rounded-lg">
+      <div className={`overflow-hidden ${innerClassName}`}>
         <motion.img
           src={src}
           alt={alt}
