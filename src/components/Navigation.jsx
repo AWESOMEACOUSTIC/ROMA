@@ -1,7 +1,18 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
+import { FaInstagram, FaFacebook, FaPinterest } from 'react-icons/fa'
 
 const LINKS = ['Hotel', 'Restaurant', 'Roma']
+
+const MENU_ITEMS = [
+    { num: '01', label: 'About' },
+    { num: '02', label: 'Restaurant' },
+    { num: '03', label: 'Villas' },
+    { num: '04', label: 'Journal' },
+]
+
+const FOOTER_LINKS = ['Contact', 'Terms of Use', 'Privacy Policy']
+
 
 export default function Navigation() {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -91,16 +102,6 @@ export default function Navigation() {
                     className="w-px bg-white/20"
                 />
 
-                {/* Round image at the top seam between the two boxes
-                <motion.img
-                    src="https://framerusercontent.com/images/BvDKz2LWasVftH4S0KIYY89Eok.png"
-                    alt="icon"
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.4, delay: 0.3 }}
-                    className="absolute -top-2 left-1/2 -translate-x-1/2 z-10 w-8 h-8 rounded-full object-cover"
-                /> */}
-
                 {/*  Right “notched” box */}
                 <div className="relative w-[8vw] shrink-0">
                     <svg
@@ -151,8 +152,9 @@ export default function Navigation() {
                                                         : i === 0
                                                             ? 45
                                                             : -45,
+                                                opacity: i === 1 ? 0 : 1,
                                             }
-                                            : { y: 0, rotate: 0 }
+                                            : { y: 0, rotate: 0, opacity: 1 }
                                     }
                                     transition={{ duration: 0.3 }}
                                 />
@@ -161,6 +163,108 @@ export default function Navigation() {
                     </div>
                 </div>
             </motion.nav>
+
+            {/* Slide-down menu panel */}
+            <AnimatePresence>
+                {menuOpen && (
+                    <motion.div
+                        key="menu-panel"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.4, ease: 'easeInOut' }}
+                        className="absolute top-[8.75rem] right-6 z-40 w-[32vw] overflow-hidden bg-[#264E33] rounded-b-3xl"
+                    >
+                        {/* Notches overlay to align with the navigation bar's bottom notches */}
+                        <svg
+                            className="absolute top-0 left-0 w-full h-31 pointer-events-none z-10"
+                            viewBox="0 0 1600 300"
+                            preserveAspectRatio="none"
+                        >
+                            <circle cx="0" cy="0" r="38" fill="#f3efe9" />
+                            <circle cx="1200" cy="0" r="38" fill="#f3efe9" />
+                            <circle cx="1600" cy="0" r="38" fill="#f3efe9" />
+                        </svg>
+
+                        <div className="flex flex-col px-8 py-8">
+                            {/* Nav heads */}
+                            <ul className="flex flex-col gap-2">
+                                {MENU_ITEMS.map((item, i) => (
+                                    <motion.li
+                                        key={item.label}
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{
+                                            delay: 0.1 + i * 0.08,
+                                            duration: 0.3,
+                                        }}
+                                    >
+                                        <a
+                                            href="#"
+                                            className="group flex items-baseline gap-3 py-1 text-white transition-all duration-300 hover:pl-6"
+                                        >
+                                            <span className="text-xs text-white/50">
+                                                {item.num}
+                                            </span>
+                                            <span className="text-4xl font-[Bonny-Bold]">
+                                                {item.label}
+                                            </span>
+                                        </a>
+                                    </motion.li>
+                                ))}
+                            </ul>
+
+                            {/* Footer links */}
+                            <div className="mt-10 flex flex-wrap gap-8 border-t border-white/15 pt-6">
+                                {FOOTER_LINKS.map((txt) => (
+                                    <a
+                                        key={txt}
+                                        href="#"
+                                        className="text-white/90 transition-all duration-300 hover:pl-2 hover:text-white"
+                                    >
+                                        {txt}
+                                    </a>
+                                ))}
+                            </div>
+
+                            {/* Social icons */}
+                            <div className="mt-6 flex gap-4">
+                                {['instagram', 'facebook', 'pinterest'].map(
+                                    (name) => (
+                                        <a
+                                            key={name}
+                                            href="#"
+                                            aria-label={name}
+                                            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:bg-white/10"
+                                        >
+                                            <SocialIcon name={name} />
+                                        </a>
+                                    )
+                                )}
+                            </div>
+
+                            {/* Copyright */}
+                            <p className="mt-8 text-2xl font-[Switzer-Regular] text-white/90">
+                                @2025 Roma Restaurant
+                            </p>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </>
     )
+}
+
+function SocialIcon({ name }) {
+    const size = 18;
+    switch (name) {
+        case 'instagram':
+            return <FaInstagram size={size} />
+        case 'facebook':
+            return <FaFacebook size={size} />
+        case 'pinterest':
+            return <FaPinterest size={size} />
+        default:
+            return null
+    }
 }
